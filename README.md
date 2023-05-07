@@ -17,3 +17,6 @@ Basta dar um make na pasta
 
 # Requisitos
   SDL2-devel, SDL2_image-devel e SDL2_ttf-devel
+
+# Instrução
+  você = vermelho e pc = azul
