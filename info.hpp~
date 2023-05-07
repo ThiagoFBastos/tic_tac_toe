@@ -1,0 +1,10 @@
+#ifndef INFO_HPP
+#define INFO_HPP
+
+enum class GAME_STATUS {
+	MENU, 
+	RUNNING,
+	EXITING
+};
+
+#endif

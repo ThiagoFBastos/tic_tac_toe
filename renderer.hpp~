@@ -1,0 +1,12 @@
+#ifndef RENDERER_HPP
+#define RENDERER_HPP
+
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
+class Renderer {
+	static SDL_Render* render;
+	static void drawImage(Image&);
+};
+
+#endif
