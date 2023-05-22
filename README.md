@@ -16,7 +16,7 @@ Jogo da velha 3x3 e 4x4 contra o pc usando minimax com memorização (guarda tod
 Basta dar um make na pasta
 
 # Requisitos
-  SDL2-devel, SDL2_image-devel e SDL2_ttf-devel
+  SDL2-devel, SDL2_image-devel, SDL2_ttf-devel e GNU C++ PBDS.
 
 # Instrução
   você = vermelho e pc = azul
