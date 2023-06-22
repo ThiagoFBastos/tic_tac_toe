@@ -13,7 +13,7 @@ extern SDL_Renderer* render;
 
 Table Game :: table;
 int Game :: turnPlayer = 0;
-enemy Game :: adv;
+Enemy Game :: adv;
 TTF_Font* Game :: textFont {};
 bool Game :: isRunning {};
 Text Game :: notif;
@@ -23,7 +23,7 @@ void Game :: build(int n) {
 	table.setSize(n, n);
 	table.setBounds(0, TITLE_HEIGHT, WIDTH / n, (HEIGHT - TITLE_HEIGHT) / n);
 	table.setSpace(1);
-	adv = enemy(n);
+	adv = Enemy(n);
 	adv.load();
 	srand(clock());
 	turnPlayer = rand() % 100 < 50 ? -1 : 1;
@@ -60,7 +60,7 @@ GAME_STATUS Game :: run() {
 			if(table.checkClick(x, y, r, c)) {
 				if(isRunning && adv.can(r, c) && turnPlayer == -1) {
 					table.setBackgroundColor(r, c, 0xff, 0x00, 0x00, 0xff);
-					adv.put(r, c, -1);
+					adv.put(r, c, 0);
 					completed = true;
 				}
 			}

@@ -10,7 +10,7 @@
 class Game {
 	static Table table;
 	static int turnPlayer;
-	static enemy adv;
+	static Enemy adv;
 	static Text notif;
 	static TTF_Font* textFont;
 	static bool isRunning;

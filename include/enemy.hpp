@@ -4,8 +4,9 @@
 #include <vector>
 #include <tuple>
 #include <utility>
-#include <cstddef>
+#include <cstdint>
 #include <ext/pb_ds/assoc_container.hpp>
+#include <map>
 
 using namespace __gnu_pbds;
 
@@ -19,35 +20,34 @@ hash_exponential_size_policy<>,
 hash_load_check_resize_trigger
 <>, true>>;
 
+#define EMPTY -1
+#define YOUR 0
+#define MY	1
+
 #define LOOSE -1
 #define DRAW 0
 #define WIN 1
 #define ONGOING 2
 #define MAXN 4
 
-using mt = std :: pair<char, char>;
-
-class enemy {
-	ht<size_t, mt> memoMAX, memoMIN;
-	int col[MAXN], row[MAXN], m_diag, s_diag, status, npos, n;
-	char table[MAXN * MAXN];
-	bool checkUtility(int, int&, int&);
+class Enemy {
+	ht<uint64_t, char> memoMAX, memoMIN;
+	int col[MAXN][2], row[MAXN][2], m_diag[2], s_diag[2], status, npos, n;
+	int table[MAXN][MAXN];
+	bool check(int, int);
 	bool mustPlace(int, int&, int&);
-	bool canDoubleWin(int, int&, int&);
-	void transpose();
-	void reverseCols();
-	void reverseRows();
-	size_t addr();
+	bool winAt(int, int&, int&);
+	uint64_t addr();
 	public:
-	enemy();
-	enemy(int);
-	void put(int, int, char);
+	Enemy();
+	Enemy(int);
+	void put(int, int, int);
 	void rem(int, int);
 	bool can(int, int);
-	mt MAX();
-	mt MIN();
+	int MAX(int, int);
+	int MIN(int, int);
 	void load();
-	mt next();
+	std :: pair<int, int> next();
 	int getStatus();
 	void dispose();
 };

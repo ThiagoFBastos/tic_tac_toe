@@ -48,15 +48,20 @@ int main(int argc, char* argv[]) {
 
 	Menu :: build();
 
-	while(status != GAME_STATUS :: EXITING) {		
+	while(true) {
+		bool quit {};
 		switch(status) {
 			case GAME_STATUS :: MENU:
 				status = Menu :: run();
 				break;
 			case GAME_STATUS :: RUNNING:
 				status = Game :: run();
+				break;		
+			case GAME_STATUS :: EXITING:
+				quit = true;
 				break;
 		}
+		if(quit) break;
 	}
 
 	SDL_DestroyRenderer(render);
