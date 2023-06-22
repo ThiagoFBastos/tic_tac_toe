@@ -290,29 +290,26 @@ bool Enemy :: winAt(int pi, int& x, int& y) {
 	for(int i = 0; i < n; ++i) {
 		for(int j = 0; j < n; ++j) {
 			if(table[i][j] != EMPTY) continue;
+			bool ok = false;
 
-			for(int p = 0; p < 2; ++p) {
-				bool ok = false;
+			put(i, j, pi);
 
-				put(i, j, p);
-
-				for(int s = 0; s < 16; ++s) {
-					if(__builtin_popcount(s) < 2) continue;
-					bool flag = true;
-					flag = flag && ((~s&1)||(row[i][pi]==n-1&&!row[i][pi^1]));
-					flag = flag && ((~s&2)||(col[j][pi]==n-1&&!col[j][pi^1]));
-					flag = flag && ((~s&4)||(m_diag[pi]==n-1&&!m_diag[pi^1]));
-					flag = flag && ((~s&8)||(s_diag[pi]==n-1&&!s_diag[pi^1]));
-					ok = ok || flag;
-				}
-	
-				rem(i, j);
-
-				if(ok) {
-					x = i, y = j, pi = p;
-					return true;
-				}
+			for(int s = 0; s < 16; ++s) {
+				if(__builtin_popcount(s) < 2) continue;
+				bool flag = true;
+				flag = flag && ((~s&1)||(row[i][pi]==n-1&&!row[i][pi^1]));
+				flag = flag && ((~s&2)||(col[j][pi]==n-1&&!col[j][pi^1]));
+				flag = flag && ((~s&4)||(m_diag[pi]==n-1&&!m_diag[pi^1]));
+				flag = flag && ((~s&8)||(s_diag[pi]==n-1&&!s_diag[pi^1]));
+				ok = ok || flag;
 			}
+
+			rem(i, j);
+
+			if(ok) {
+				x = i, y = j;
+				return true;
+			}	
 		}
 	}
 
