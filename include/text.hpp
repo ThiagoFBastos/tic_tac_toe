@@ -19,6 +19,7 @@ class Text {
 	void setFont(TTF_Font*);
 	void draw();
 	void dispose();
+	SDL_Rect getBounds() const;
 };
 
 #endif

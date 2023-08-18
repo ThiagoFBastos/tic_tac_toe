@@ -6,9 +6,9 @@ e prunning (reverte linhas, colunas e transpõe o tabuleiro, vê se o jogador po
 
 ![inicio](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/start.png) <br>
 
-![3x3](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/3x3.png) <br>
+![3x3](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/3x3-9.png) <br>
 
-![4x4](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/4x4.png) <br>
+![4x4](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/4x4-16.png) <br>
 
 ## Requisitos
 -  g++ que suporta c++17

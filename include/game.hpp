@@ -6,6 +6,7 @@
 #include "text.hpp"
 #include <vector>
 #include "enemy.hpp"
+#include "button.hpp"
 
 class Game {
 	static Table table;
@@ -14,6 +15,8 @@ class Game {
 	static Text notif;
 	static TTF_Font* textFont;
 	static bool isRunning;
+	static Button btnReset;
+	static int n;
 	public:
 	static void build(int);
 	static GAME_STATUS run();

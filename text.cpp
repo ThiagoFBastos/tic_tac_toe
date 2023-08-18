@@ -47,3 +47,7 @@ void Text :: dispose() {
 	if(textTexture) SDL_DestroyTexture(textTexture);
 	textTexture = nullptr;
 }
+
+SDL_Rect Text :: getBounds() const {
+	return textBounds;
+}

@@ -15,7 +15,7 @@ class Button {
 	void build();
 	void setText(Text);
 	Text& getText();
-	SDL_Rect getBounds();
+	SDL_Rect getBounds() const;
 	void setBounds(int, int, int, int);
 	void setBackgroundColor(Uint8, Uint8, Uint8, Uint8);
 	void draw();

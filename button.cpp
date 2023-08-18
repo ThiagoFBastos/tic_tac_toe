@@ -20,7 +20,7 @@ Text& Button :: getText() {
 	return text;
 }
 
-SDL_Rect Button :: getBounds() {
+SDL_Rect Button :: getBounds() const {
 	return buttonBounds;
 }
 

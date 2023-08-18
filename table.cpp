@@ -35,6 +35,12 @@ void Table :: setSpace(int space) {
 	this->space = space;
 }
 
+SDL_Rect Table :: getBounds() const {
+	int w = cellBounds.w * cols + space * (cols - 1);
+	int h = cellBounds.h * rows + space * (rows - 1);
+	return {cellBounds.x, cellBounds.y, w, h};
+}
+
 bool Table :: checkClick(int x, int y, int& r, int& c) {
 	auto [x0, y0, w, h] = cellBounds;
 	for(int i = 0; i < rows; ++i) {

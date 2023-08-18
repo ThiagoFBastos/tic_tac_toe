@@ -16,6 +16,7 @@ class Table {
 	void setBackgroundColor(int, int, Uint8, Uint8, Uint8, Uint8);
 	void draw();
 	bool checkClick(int, int, int&, int&);
+	SDL_Rect getBounds() const;
 };
 
 #endif

@@ -27,6 +27,10 @@ void Image :: setImagePath(std :: string imagePath) {
 void Image :: setBounds(int x, int y, int w, int h) {
 	imageBounds = {x, y, w, h};
 }
+
+SDL_Rect Image :: getBounds() const {
+	return imageBounds;
+}
  
 void Image :: draw() {
 	SDL_RenderCopy(render, imageTexture, nullptr, &imageBounds);

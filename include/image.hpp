@@ -8,13 +8,14 @@ class Image {
 	SDL_Rect imageBounds;
 	SDL_Texture* imageTexture;
 	std :: string imagePath;
-	public:	
-	Image();	
+	public:
+	Image();
 	void build();
 	void setImagePath(std :: string);
 	void setBounds(int, int, int, int);
 	void draw();
 	void dispose();
+	SDL_Rect getBounds() const;
 };
 
 #endif

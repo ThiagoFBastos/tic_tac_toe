@@ -17,22 +17,34 @@ Enemy Game :: adv;
 TTF_Font* Game :: textFont {};
 bool Game :: isRunning {};
 Text Game :: notif;
+Button Game :: btnReset;
+int Game :: n {};
 
 void Game :: build(int n) {
 	dispose();
+
+	Game :: n = n;
+
 	table.setSize(n, n);
-	table.setBounds(0, TITLE_HEIGHT, WIDTH / n, (HEIGHT - TITLE_HEIGHT) / n);
+	table.setBounds(0, TITLE_HEIGHT, WIDTH / n, (HEIGHT - 60 - TITLE_HEIGHT) / n);
 	table.setSpace(1);
+
 	adv = Enemy(n);
 	adv.load();
+
 	srand(clock());
+
 	turnPlayer = rand() % 100 < 50 ? -1 : 1;
+
 	isRunning = true;
+
 	textFont = TTF_OpenFont("data/Roboto-Regular.ttf", 80);
+
 	if(!textFont) {
 		std :: cout << "game: " << SDL_GetError() << '\n';
 		exit(0);
 	}
+
 	if(turnPlayer == -1) {
 		notif.setText("You begin!");
 		notif.setColor(0xff, 0x00, 0x00, 0xff);
@@ -40,9 +52,30 @@ void Game :: build(int n) {
 		notif.setText("I begin!");
 		notif.setColor(0x00, 0x00, 0xff, 0xff);
 	}
+
 	notif.setFont(textFont);
 	notif.setBounds((WIDTH - 100) / 2, 10, 100, 30);
-	notif.build();	
+	notif.build();
+
+	Text& txtReset = btnReset.getText();
+
+	int midX = (WIDTH - 90) / 2;
+	int midY = (table.getBounds().y + table.getBounds().h + HEIGHT - 30) / 2;
+
+	btnReset.setBounds(midX, midY, 90, 30);
+	btnReset.setBackgroundColor(80, 81, 82, 255);
+
+	txtReset.setText("reset");
+	txtReset.setFont(textFont);
+	txtReset.setColor(0xff, 0xff, 0xff, 0xff);
+
+	midX = (2 * btnReset.getBounds().x + btnReset.getBounds().w - 60) / 2;
+	midY = (2 * btnReset.getBounds().y + btnReset.getBounds().h - 25) / 2;
+
+	txtReset.setBounds(midX, midY, 60, 25);
+
+	btnReset.build();
+
 	SDL_SetWindowSize(window, WIDTH, HEIGHT);
 }
 
@@ -63,6 +96,9 @@ GAME_STATUS Game :: run() {
 					adv.put(r, c, 0);
 					completed = true;
 				}
+			} else if(btnReset.checkClick(x, y)) {
+				build(n);
+				return GAME_STATUS :: RUNNING;
 			}
 		}
 	}
@@ -96,6 +132,7 @@ GAME_STATUS Game :: run() {
 	SDL_RenderClear(render);
 	table.draw();
 	notif.draw();
+	btnReset.draw();
 	SDL_RenderPresent(render);
 	if(status != GAME_STATUS :: RUNNING) dispose();
 	if(completed) turnPlayer *= -1;
