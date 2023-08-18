@@ -25,3 +25,5 @@ e prunning (reverte linhas, colunas e transpõe o tabuleiro, vê se o jogador po
 1. Escolha o tamanho do tabuleiro 3x3 ou 4x4
 2. Na sua vez escolha uma célula vazia e clique que ela será preenchida com vermelho
 3. O PC usa a cor azul para preencher as células
+
+[usando.webm](https://github.com/ThiagoFBastos/tic_tac_toe/assets/40869714/43d90d0c-49f6-4cd5-861b-17b76c96a271)
