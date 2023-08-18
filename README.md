@@ -10,9 +10,6 @@ e prunning (reverte linhas, colunas e transpõe o tabuleiro, vê se o jogador po
 
 ![4x4](https://github.com/ThiagoFBastos/tic_tae_toe/blob/main/data/4x4.png) <br>
 
-## Instalação
-1. Abra o terminal e use o comando make
-
 ## Requisitos
 -  g++ que suporta c++17
 -  SDL2-devel
@@ -20,6 +17,9 @@ e prunning (reverte linhas, colunas e transpõe o tabuleiro, vê se o jogador po
 -  SDL2_ttf-devel
 -  GNU C++ PBDS
 -  GNU Make
+
+## Instalação
+1. Abra o terminal e use o comando make
 
 ## Instruções
 1. Escolha o tamanho do tabuleiro 3x3 ou 4x4

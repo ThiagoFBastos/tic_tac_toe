@@ -16,6 +16,8 @@ table.cpp~
 table.hpp~
 text.hpp~
 text.cpp~
+table.o
+game.o
 button.o
 enemy.o
 main.o
